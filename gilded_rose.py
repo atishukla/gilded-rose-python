@@ -13,19 +13,16 @@ class GildedRose(object):
     def update_quality(self):
         for item in self.items:
             if item.name != self.aged_brie and item.name != self.backstage:
-                if item.quality > 0:
-                    if item.name != self.sulfuras:
-                        item.quality = item.quality - 1
+                if item.name != self.sulfuras:
+                    self.update_item_quality(item, -1)
             else:
                 if item.quality < 50:
                     item.quality = item.quality + 1
                     if item.name == self.backstage:
                         if item.sell_in < 11:
-                            if item.quality < 50:
-                                item.quality = item.quality + 1
+                            self.update_item_quality(item, 1)
                         if item.sell_in < 6:
-                            if item.quality < 50:
-                                item.quality = item.quality + 1
+                            self.update_item_quality(item, 1)
 
             if item.name != self.sulfuras:
                 item.sell_in = item.sell_in - 1
