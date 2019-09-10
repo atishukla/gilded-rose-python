@@ -45,11 +45,10 @@ class GildedRose(object):
         self.update_item_quality(item, 1)
 
     def decrease_item_quality(self, item, quality_delta):
-        if item.quality > 0:
-            item.quality -= quality_delta
+        self.update_item_quality(item, -quality_delta)
 
     def update_item_quality(self, item, quality_delta):
-        if item.quality < 50:
+        if item.quality < 50 and item.quality > 0:
             item.quality += quality_delta
 
 
