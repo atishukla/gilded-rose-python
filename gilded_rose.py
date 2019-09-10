@@ -35,15 +35,12 @@ class GildedRose(object):
                     if item.quality < 50:
                         item.quality = item.quality + 1
 
-                elif item.name != self.aged_brie:
-                    if item.name != self.backstage:
-                        if item.quality > 0:
-                            if item.name != self.sulfuras:
-                                item.quality = item.quality - 1
-                    else:
-                        item.quality = item.quality - item.quality
+                elif item.name != self.backstage:
+                    if item.quality > 0:
+                        if item.name != self.sulfuras:
+                            item.quality = item.quality - 1
                 else:
-                    pass
+                    item.quality = item.quality - item.quality
 
 
 class Item:
