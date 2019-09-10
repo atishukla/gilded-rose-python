@@ -36,10 +36,15 @@ class GildedRose(object):
                         item.quality = item.quality + 1
                 elif item.name == self.backstage:
                     item.quality = item.quality - item.quality
+                elif item.name == self.sulfuras:
+                    pass
 
-                elif item.quality > 0:
-                    if item.name != self.sulfuras:
-                        item.quality = item.quality - 1
+                else:
+                    self.decrease_item_quality(item)
+
+    def decrease_item_quality(self, item):
+        if item.quality > 0:
+            item.quality -= 1
 
 
 class Item:
