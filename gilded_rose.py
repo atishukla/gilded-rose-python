@@ -32,8 +32,7 @@ class GildedRose(object):
 
             if item.sell_in < 0:
                 if item.name == self.aged_brie:
-                    if item.quality < 50:
-                        item.quality = item.quality + 1
+                    self.increase_item_quality(item)
                 elif item.name == self.backstage:
                     self.decrease_item_quality(item, item.quality)
                 elif item.name == self.sulfuras:
@@ -42,9 +41,16 @@ class GildedRose(object):
                 else:
                     self.decrease_item_quality(item, 1)
 
+    def increase_item_quality(self, item):
+        self.update_item_quality(item, 1)
+
     def decrease_item_quality(self, item, quality_delta):
         if item.quality > 0:
             item.quality -= quality_delta
+
+    def update_item_quality(self, item, quality_delta):
+        if item.quality < 50:
+            item.quality += quality_delta
 
 
 class Item:
