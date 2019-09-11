@@ -17,17 +17,15 @@ class GildedRose(object):
                     self.update_item_quality(item, -1)
             else:
                 # Replacing this is distorting the identation for if statement
-                if item.quality < 50:
-                    item.quality = item.quality + 1
-
-                    if item.name == self.backstage:
-                        if item.sell_in < 11:
-                            self.update_item_quality(item, 1)
-                        if item.sell_in < 6:
-                            self.update_item_quality(item, 1)
+                self.update_item_quality(item, 1)
+                if item.name == self.backstage:
+                    if item.sell_in < 11:
+                        self.update_item_quality(item, 1)
+                    if item.sell_in < 6:
+                        self.update_item_quality(item, 1)
 
             if item.name != self.sulfuras:
-                item.sell_in = item.sell_in - 1
+                item.sell_in -= 1
 
             if item.sell_in < 0:
                 if item.name == self.aged_brie:

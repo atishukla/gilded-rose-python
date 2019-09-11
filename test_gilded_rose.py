@@ -44,7 +44,7 @@ class GildedRoseTest(unittest.TestCase):
 
         expected = [
             {'sell_in': -2, 'quality': 5},
-            {'sell_in': -2, 'quality': 2},
+            {'sell_in': -2, 'quality': 0},
         ]
 
         for index, expectation in enumerate(expected):
@@ -53,14 +53,14 @@ class GildedRoseTest(unittest.TestCase):
             self.assertEqual(item.sell_in, expectation['sell_in'])
 
     def test_quality_increases_for_certain_items(self):
-        self.items.append(Item(name="Aged Brie", sell_in=9, quality=0))
+        self.items.append(Item(name="Aged Brie", sell_in=20, quality=30))
         self.items.append(
-            Item(name="Backstage passes to a TAFKAL80ETC concert", sell_in=15, quality=0))
+            Item(name="Backstage passes to a TAFKAL80ETC concert", sell_in=20, quality=30))
         get_gilded_rose(self.items).update_quality()
 
         expected = [
-            {'sell_in': 8, 'quality': 1},
-            {'sell_in': 14, 'quality': 1}
+            {'sell_in': 19, 'quality': 31},
+            {'sell_in': 19, 'quality': 31}
         ]
 
         for index, expectation in enumerate(expected):
@@ -111,7 +111,7 @@ class GildedRoseTest(unittest.TestCase):
         expected = [
             {'sell_in': 10, 'quality': 23},
             {'sell_in': 9, 'quality': 22},
-            {'sell_in': 8, 'quality': 26},
+            {'sell_in': 8, 'quality': 26}
         ]
 
         for index, expectation in enumerate(expected):
