@@ -16,8 +16,10 @@ class GildedRose(object):
                 if item.name != self.sulfuras:
                     self.update_item_quality(item, -1)
             else:
+                # Replacing this is distorting the identation for if statement
                 if item.quality < 50:
                     item.quality = item.quality + 1
+
                     if item.name == self.backstage:
                         if item.sell_in < 11:
                             self.update_item_quality(item, 1)
