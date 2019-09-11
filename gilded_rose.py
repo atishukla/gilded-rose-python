@@ -14,10 +14,8 @@ class GildedRose(object):
         return item.name != self.aged_brie and item.name != self.backstage
 
     def foo(self, item):
-        if (self._is_item_not_aged_brie_and_backstage(item)):
-            if item.name != self.sulfuras:
-                self.update_item_quality(item, -1)
-        else:
+
+        if not self._is_item_not_aged_brie_and_backstage(item):
             # Replacing this is distorting the identation for if statement
             self.update_item_quality(item, 1)
             if item.name == self.backstage:
@@ -25,6 +23,10 @@ class GildedRose(object):
                     self.update_item_quality(item, 1)
                 if item.sell_in < 6:
                     self.update_item_quality(item, 1)
+
+        if self._is_item_not_aged_brie_and_backstage(item):
+            if item.name != self.sulfuras:
+                self.update_item_quality(item, -1)
 
     def update_quality(self):
         for item in self.items:
