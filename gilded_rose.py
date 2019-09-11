@@ -12,10 +12,16 @@ class GildedRose(object):
 
     def update_quality(self):
         for item in self.items:
+
+            # Code updating only sell_in
+            if item.name != self.sulfuras:
+                item.sell_in -= 1
+
             if item.name != self.aged_brie and item.name != self.backstage:
                 if item.name != self.sulfuras:
                     self.update_item_quality(item, -1)
             else:
+
                 # Replacing this is distorting the identation for if statement
                 self.update_item_quality(item, 1)
                 if item.name == self.backstage:
@@ -23,9 +29,6 @@ class GildedRose(object):
                         self.update_item_quality(item, 1)
                     if item.sell_in < 6:
                         self.update_item_quality(item, 1)
-
-            if item.name != self.sulfuras:
-                item.sell_in -= 1
 
             if item.sell_in < 0:
                 if item.name == self.aged_brie:

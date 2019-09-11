@@ -109,7 +109,7 @@ class GildedRoseTest(unittest.TestCase):
         get_gilded_rose(self.items).update_quality()
 
         expected = [
-            {'sell_in': 10, 'quality': 23},
+            {'sell_in': 10, 'quality': 24},
             {'sell_in': 9, 'quality': 22},
             {'sell_in': 8, 'quality': 26}
         ]
@@ -131,7 +131,7 @@ class GildedRoseTest(unittest.TestCase):
 
         expected = [
             {'sell_in': 4, 'quality': 25},
-            {'sell_in': 5, 'quality': 22},
+            {'sell_in': 5, 'quality': 23},
             {'sell_in': 3, 'quality': 27},
         ]
 
