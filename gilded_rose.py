@@ -12,7 +12,6 @@ class GildedRose(object):
 
     def update_quality(self):
         for item in self.items:
-
             # Code updating only sell_in
             self.update_sell_in(item)
 
