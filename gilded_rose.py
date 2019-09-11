@@ -14,8 +14,7 @@ class GildedRose(object):
         for item in self.items:
 
             # Code updating only sell_in
-            if item.name != self.sulfuras:
-                item.sell_in -= 1
+            self.update_sell_in(item)
 
             if item.name != self.aged_brie and item.name != self.backstage:
                 if item.name != self.sulfuras:
@@ -44,6 +43,10 @@ class GildedRose(object):
     def update_item_quality(self, item, quality_delta):
         if item.quality < 50 and item.quality > 0:
             item.quality += quality_delta
+
+    def update_sell_in(self, item):
+        if item.name != self.sulfuras:
+            item.sell_in -= 1
 
 
 class Item:
