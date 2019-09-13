@@ -17,7 +17,6 @@ class GildedRoseTest(unittest.TestCase):
     def test_regular_item_decrease_by_one(self):
         self.items.append(Item(name="+5 Dexterity Vest", sell_in=10, quality=20))
         get_gilded_rose(self.items).update_quality()
-        item = self.items[0]
 
         expected = [
             {'sell_in': 9, 'quality': 19}
